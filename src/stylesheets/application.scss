@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+@import "reset";
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  padding: 4rem 0;
+  height: 100%;
+  background-color: #272822;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  box-sizing: border-box;
+}
+
+//
+// Dropzone
+//
+.dropzone {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  background: rgba(73,72,62,.9);
+  .dragover & {
+  	display: block;
+  } 
+  &__inner {
+  	position: relative;
+    width: 100%;
+    height: 100%;
+    border: 4px dashed #f8f8f0;
+  }
+  &__text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    padding: 4rem;
+    box-sizing: border-box;
+    color: #f8f8f0;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    text-align: center;
+  }
+}
+
+//
+// File Upload
+//
+.file-upload {
+  width: 800px;
+  margin: 0 auto 4rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  border: 2px dashed #49483E;
+  color: #f8f8f0;
+  text-align: center;
+  transition: border-color .2s linear;
+  &:hover {
+    border-color: #f8f8f0;
+  }
+  &__text {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  &__input {
+    
+  }
+  &__error {
+
+  }
+}
+
+//
+// Player
+//
+.player {
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  &__content {
+    display: none;
+    color: #f8f8f0;
+  }
+  &__details {
+    margin-bottom: 2rem;
+  }
+  &__filename {
+
+  }
+  &__toolbar {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  &__graph {
+    margin-bottom: 2rem;
+  }
+  &__equalizer {
+
+  }
+  &__loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("src/images/loading.gif") #272822 no-repeat 50% 50%;
+  }
+}
+
+.player-control {
+  width: 6.4rem;
+  height: 6.4rem;
+  background-color: transparent;
+  border: 2px solid #49483E;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color .2s linear;
+  &:hover {
+    border-color: #f8f8f0;
+  }
+  &__icon {
+    color: #f8f8f0;
+    font-size: 1.8rem;
+    .player-control[data-state="play"]  &:before {content: "\f04c";}
+    .player-control[data-state="pause"] &:before {content: "\f04b";}
+  }
+}
+
+.player-volume {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  &__toggle {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+  }
+  &__icon {
+    color: #f8f8f0;
+    font-size: 1.8rem;
+    .player-volume__toggle[data-state="on"]  &:before {content: "\f027";}
+    .player-volume__toggle[data-state="off"] &:before {content: "\f026";}
+  }
+  &__control {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.player-visualization {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+//
+// Equalizer
+//
+.equalizer {
+  display: inline-block;
+  &__bar {
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: right;
+  }
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.equalizer-filters {
+  position: relative;
+  &:before,
+  &:after {
+    display: inline-block;
+    position: absolute;
+    right: 100%;
+    font-size: 1.2rem;	
+  }
+  &:before {
+  	content: attr(data-max-value);
+    top: 0;
+  }
+  &:after {
+    content: attr(data-min-value);
+    bottom: 2rem;
+  }
+  &__item {
+  	display: inline-block;
+    vertical-align: top;
+    &:after {
+      content: attr(data-value);
+      display: block;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.equalizer-filter {
+  width: 60px;
+  height: 180px;
+  margin: 0;
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+}
