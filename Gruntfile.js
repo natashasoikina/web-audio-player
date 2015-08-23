@@ -5,6 +5,12 @@ module.exports = function(grunt) {
         clean: ['dest/'],
 
         copy: {
+            files: {
+                expand: true,
+                cwd: 'src/',
+                src: ['*.{txt,ico}'],
+                dest: 'dest/'
+            },
             javascripts: {
                 expand: true,
                 cwd: 'src/javascripts/',
@@ -29,7 +35,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/',
-                    src: ['**/*.html.haml'],
+                    src: ['**/*.haml'],
                     dest: 'dest/',
                     ext: '.html'
                 }]
@@ -102,8 +108,12 @@ module.exports = function(grunt) {
                 livereload: false,
                 spawn: false
             },
+            files: {
+                files: ['src/*.*'],
+                tasks: ['newer:copy:files']
+            },
             views: {
-                files: ['src/**/*.html.haml'],
+                files: ['src/**/*.haml'],
                 tasks: ['newer:haml:views']
             },
             stylesheets: {

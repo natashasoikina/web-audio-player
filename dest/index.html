@@ -20,6 +20,8 @@
       <div class='player' id='player'>
         <div class='player__content' id='player-content'>
           <div class='player__details'>
+            <p class='player__title' id='player-title'></p>
+            <p class='player__artist' id='player-artist'></p>
             <p class='player__filename' id='player-filename'></p>
           </div>
           <div class='player__toolbar'>
@@ -32,7 +34,7 @@
             <button class='player-control' id='player-control' type='button'>
               <span class='player-control__icon fa fa-play'></span>
             </button>
-            <select class='player-visualization' id='player-visualization' name='player-visualization'>
+            <select class='player-visualization-control' id='player-visualization-control' name='player-visualization-control'>
               <option value='spectrum'>spectrum</option>
               <option value='waveform'>waveform</option>
             </select>
@@ -47,38 +49,38 @@
                   <input checked id='equalizer-toggle' name='equalizer-toggle' type='checkbox'>
                   On
                 </label>
-                <select id='equalizer-presets' name='equalizer-presets'></select>
+                <select id='equalizer-control' name='equalizer-control'></select>
               </div>
               <ul class='equalizer-filters' id='equalizer-filters'>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='0' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='0' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='1' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='1' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='2' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='2' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='3' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='3' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='4' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='4' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='5' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='5' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='6' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='6' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='7' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='7' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='8' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='8' orient='vertical' type='range'>
                 </li>
                 <li class='equalizer-filters__item'>
-                  <input class='equalizer-filter js-equalizer-filter' data_index='9' orient='vertical' type='range'>
+                  <input class='equalizer-filter js-equalizer-filter' data-index='9' orient='vertical' type='range'>
                 </li>
               </ul>
             </div>
@@ -92,7 +94,8 @@
         </div>
       </div>
     </main>
-    <script src='javascripts/modernizr.js'></script>
+    <script src='javascripts/modernizr.min.js'></script>
+    <script src='javascripts/id3.min.js'></script>
     <script src='javascripts/application.js'></script>
   </body>
 </html>
